@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QCore • Quantum Computing Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background-size: 600% 600%;
+      animation: gradientShift 15s ease infinite;
+      color: #fff;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      background: linear-gradient(to right, #00f2fe, #4facfe, #a18cd1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    p.tagline {
+      font-size: 1.25rem;
+      color: #d1d5db;
+      margin-bottom: 2rem;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      margin: 0.5rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 75, 43, 0.7);
+    }
+
+    .post, .detail-section {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(6px);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+
+    .post h2, .detail-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: #00f2fe;
+    }
+
+    .post p, .detail-section p {
+      color: #e0e0e0;
+      font-size: 1rem;
+    }
+
+    .learn-more {
+      display: inline-block;
+      margin-top: 1rem;
+      background: linear-gradient(to right, #00f2fe, #4facfe);
+      padding: 0.5rem 1.5rem;
+      border-radius: 2rem;
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .learn-more:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(79, 172, 254, 0.7);
+    }
+
+    .glow {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(161,140,209,0.6) 0%, transparent 80%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .glow:nth-child(1) {
+      top: 10%;
+      left: 5%;
+    }
+    .glow:nth-child(2) {
+      bottom: 15%;
+      right: 5%;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .detail-section {
+      display: none;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .credits {
+      font-size: 0.75rem;
+      color: #aaa;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="glow"></div>
+
+  <header>
+    <h1>QCore Quantum Blog</h1>
+    <p class="tagline">Breaking boundaries in quantum technology. Explore our innovations.</p>
+    <nav>
+      <span class="btn" onclick="showMain()">Home</span>
+      <span class="btn" onclick="showDetails('processor')">Quantum Processors</span>
+      <span class="btn" onclick="showDetails('qsim')">QSim Platform</span>
+      <span class="btn" onclick="showDetails('sdks')">Developer SDKs</span>
+    </nav>
+  </header>
+
+  <main>
+    <section id="main-content">
+      <article class="post" id="post1">
+        <h2>⚛️ Real-Time Quantum Processors</h2>
+        <p>
+          Our processors operate with qubits cooled near absolute zero, enabling complex quantum entanglement and superposition in real-time. QCore provides remote access to these processors via secured cloud APIs.
+        </p>
+        <span class="learn-more" onclick="showDetails('processor')">Learn More</span>
+      </article>
+
+      <article class="post" id="post2">
+        <h2>🌐 QSim — Your Quantum Playground</h2>
+        <p>
+          QSim is a user-friendly web-based platform for simulating and visualizing quantum circuits. With drag-and-drop logic gates, real-time probability graphs, and exportable results, it's the perfect tool for learners and pros alike.
+        </p>
+        <span class="learn-more" onclick="showDetails('qsim')">Learn More</span>
+      </article>
+
+      <article class="post" id="post3">
+        <h2>🧰 Cross-Platform SDKs</h2>
+        <p>
+          Build quantum-enhanced apps with our SDKs for Python, JavaScript, and Rust. Our open-source libraries simplify the development pipeline and provide full integration with classical algorithms and cloud execution.
+        </p>
+        <span class="learn-more" onclick="showDetails('sdks')">Learn More</span>
+      </article>
+    </section>
+
+    <section id="processor" class="detail-section">
+      <h2>Quantum Processors</h2>
+      <img src="https://cdn.mos.cms.futurecdn.net/w5Pg75KUTzAgZziDVym6Q7.jpg" alt="Quantum Processor Diagram" style="width:100%; max-width:600px; border-radius:1rem; margin-top:1rem;">
+      <p>QCore's quantum processors harness the unique properties of superconducting qubits to perform complex quantum operations. Cooled near absolute zero, they allow quantum effects such as superposition and entanglement to be used in real-time calculations. The hardware is integrated into a cloud-based platform for scalable access by developers, researchers, and businesses.</p>
+    </section>
+
+    <section id="qsim" class="detail-section">
+      <h2>QSim Platform</h2>
+      <img src="https://quantumai.google/static/site-assets/images/cards/qsim-card-schrodinger.png" alt="QSim Visualization" style="width:100%; max-width:600px; border-radius:1rem; margin-top:1rem;">
+      <p>QSim is our interactive, visual platform for experimenting with quantum logic. It includes drag-and-drop circuit building, real-time simulation, and exportable measurement outcomes. Whether you’re a student or a scientist, QSim lowers the barrier to hands-on quantum exploration.</p>
+    </section>
+
+    <section id="sdks" class="detail-section">
+      <h2>Developer SDKs</h2>
+      <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240103130027/What-is-SDK-banner.jpg" alt="Quantum SDK" style="width:600px; margin-top:1rem;">
+      <p>With SDKs in Python, JavaScript, and Rust, QCore allows developers to integrate quantum capabilities into their applications. Our APIs offer seamless cloud integration, automatic error correction handling, and compatibility with classical environments.</p>
+    </section>
+  </main>
+
+  <script>
+    function showDetails(id) {
+      document.getElementById('main-content').style.display = 'none';
+      document.querySelectorAll('.detail-section').forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function showMain() {
+      document.getElementById('main-content').style.display = 'block';
+      document.querySelectorAll('.detail-section').forEach(section => {
+        section.style.display = 'none';
+      });
+    }
+  </script>
+    <footer>
+    <p class="credits">Made by Salnyk Kyrylo, PD-23</p>
+  </footer>
+
+</body>
+</html>
